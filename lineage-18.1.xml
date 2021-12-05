@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- forked from onmirom/android_device_motorola_dynamic_common@android-11 on 2021-12-04 -->
+  <project name="pgaskin/android_sofiar_new" path="device/motorola/dynamic_common" remote="github" revision="lineage-18.1/device/motorola/dynamic_common"/>
+
+  <!-- forked from onmirom/android_device_motorola_sm6125_common@android-11 on 2021-12-04 -->
+  <project name="pgaskin/android_sofiar_new" path="device/motorola/motorola_sm6125_common" remote="github" revision="lineage-18.1/device/motorola/sm6125_common"/>
+
+  <!-- forked from onmirom/android_vendor_motorola_dynamic_common@android-11 on 2021-12-04 -->
+  <project name="pgaskin/android_sofiar_new" path="vendor/motorola/dynamic_common" remote="github" revision="lineage-18.1/vendor/motorola/dynamic_common"/>
+
+  <!-- forked from onmirom/android_vendor_motorola_sm6125_common@android-11 on 2021-12-04 -->
+  <project name="pgaskin/android_sofiar_new" path="vendor/motorola/sm6125_common" remote="github" revision="lineage-18.1/vendor/motorola/sm6125_common"/>
+
+  <project name="omnirom/android_kernel_motorola_sm6125" path="kernel/motorola/sm6125" remote="github" revision="android-11"/>
+</manifest>
