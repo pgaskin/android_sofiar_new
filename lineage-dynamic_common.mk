@@ -19,20 +19,9 @@
 # product configuration (apps).
 #
 
-VENDOR_EXCEPTION_PATHS := omni \
-    motorola \
-    gapps \
-    microg
-
-# Sample: This is where we'd set a backup provider if we had one
-# $(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
-
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
@@ -53,11 +42,7 @@ BOARD_USES_RECOVERY_AS_BOOT := false
 
 AB_OTA_UPDATER := true
 
-DEVICE_PACKAGE_OVERLAYS += device/motorola/dynamic_common/overlay/device
-DEVICE_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
-
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+DEVICE_PACKAGE_OVERLAYS += device/motorola/dynamic_common/overlay
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/motorola/dynamic_common/dynamic_common.mk)

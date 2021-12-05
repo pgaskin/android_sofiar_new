@@ -82,7 +82,6 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
-include vendor/omni/sepolicy/sepolicy.mk
 include device/qcom/sepolicy/SEPolicy.mk
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private

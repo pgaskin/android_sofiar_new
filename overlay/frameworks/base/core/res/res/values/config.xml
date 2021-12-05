@@ -65,7 +65,6 @@
     <bool name="skip_restoring_network_selection">true</bool>
     <integer name="config_multiuserMaximumUsers">4</integer>
 
-
     <!-- Enable overlay for all location components. -->
     <bool name="config_enableNetworkLocationOverlay" translatable="false">true</bool>
     <bool name="config_enableFusedLocationOverlay" translatable="false">true</bool>
@@ -93,11 +92,5 @@
         <item>/system/framework/framework-res.apk</item>
         <item>/system/framework/arm64/boot-framework.oat</item>
     </string-array>
-
-    <!-- Paths to the libraries that contain device specific key handlers -->
-    <string name="config_deviceKeyHandlerLib" translatable="false">/system/priv-app/MotoActions/MotoActions.apk</string>
-
-    <!-- Names of the key handler classes -->
-    <string name="config_deviceKeyHandlerClass" translatable="false">com.moto.actions.KeyHandler</string>
 
 </resources>
