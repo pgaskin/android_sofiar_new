@@ -29,19 +29,19 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <vector>
+
 #include <android-base/properties.h>
 #include <android-base/logging.h>
 #include <sys/resource.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
-#include <vector>
 
-namespace android {
-namespace init {
+#include "vendor_init.h"
 
 using android::base::GetProperty;
 
-std::vector<std::string> ro_props_default_source_order = {
+static std::vector<std::string> ro_props_default_source_order = {
     "",
     "odm.",
     "product.",
@@ -50,7 +50,7 @@ std::vector<std::string> ro_props_default_source_order = {
     "vendor.",
 };
 
-void property_override(char const prop[], char const value[], bool add = true)
+static void property_override(char const prop[], char const value[], bool add = true)
 {
     prop_info *pi;
 
@@ -133,6 +133,3 @@ void vendor_load_properties() {
         }
     }
 }
-
-}  // namespace init
-}  // namespace android
