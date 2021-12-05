@@ -12,40 +12,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file is the build configuration for a full Android
-# build for grouper hardware. This cleanly combines a set of
-# device-specific aspects (drivers) with a device-agnostic
-# product configuration (apps).
-#
-
+# For compatibility with blobs
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
 
-TARGET_BOOTANIMATION_SIZE := 1080p
-
-# Prebuilt
+# Prebuilts
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/motorola/motorola_sm6125_common/prebuilt/product,product) \
     $(call find-copy-subdir-files,*,device/motorola/motorola_sm6125_common/prebuilt/system,system)
 
+# Commonized stuff
 $(call inherit-product, device/motorola/dynamic_common/lineage-dynamic_common.mk)
-
-# Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/motorola/motorola_sm6125_common/sm6125_common.mk)
 
-PRODUCT_SHIPPING_API_LEVEL := 29
+# Device info
+TARGET_VENDOR := motorola
+TARGET_DEVICE := Moto G8 Power
 
-# Discard inherited values and use our own instead.
 PRODUCT_NAME := lineage_motorola_sm6125_common
 PRODUCT_DEVICE := motorola_sm6125_common
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 PRODUCT_MODEL := moto g8 power
-
-TARGET_DEVICE := Moto G8 Power
 PRODUCT_SYSTEM_NAME := Moto G8 Power
+PRODUCT_SHIPPING_API_LEVEL := 29
 
-TARGET_VENDOR := motorola
+# Config
+TARGET_BOOTANIMATION_SIZE := 1080p
 
 PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.enable_gl_backpressure=0 \
@@ -62,4 +54,5 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 DEVICE_PACKAGE_OVERLAYS += device/motorola/motorola_sm6125_common/overlay
 
+# Commonized stuff
 $(call inherit-product, vendor/motorola/sm6125_common/sm6125_common-vendor.mk)

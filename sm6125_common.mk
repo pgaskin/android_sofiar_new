@@ -13,13 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file is the build configuration for a full Android
-# build for grouper hardware. This cleanly combines a set of
-# device-specific aspects (drivers) with a device-agnostic
-# product configuration (apps).
-#
-
 AB_OTA_PARTITIONS += \
     boot \
     system \
@@ -28,37 +21,28 @@ AB_OTA_PARTITIONS += \
 
 $(call inherit-product, device/motorola/dynamic_common/dynamic_common.mk)
 
-# Boot control
-PRODUCT_PACKAGES += \
-    bootctrl.trinket.recovery
-
 PRODUCT_AAPT_CONFIG := xxxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# Extra packages
 PRODUCT_PACKAGES += \
-    MotoActions
-
-# Remove unwanted packages
-PRODUCT_PACKAGES += \
+    bootctrl.trinket.recovery \
+    android.hardware.light@2.0-service.trinket \
+    MotoActions \
     RemovePackages
 
+# Device-specific overlays
 PRODUCT_PACKAGES += \
     MotoRav \
     MotoRavT \
     MotoSofia \
     MotoSofiaP \
     MotoSofiaPSprout \
-    MotoSofiaR
-
-PRODUCT_PACKAGES += \
+    MotoSofiaR \
     SystemUI_MotoRav \
     SystemUI_MotoRavT \
     SystemUI_MotoSofia \
     SystemUI_MotoSofiaP \
     SystemUI_MotoSofiaPSprout \
     SystemUI_MotoSofiaR
-
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.trinket
